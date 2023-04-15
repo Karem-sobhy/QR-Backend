@@ -14,15 +14,15 @@ class DataStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '*.First name' => 'required|alpha|max:255',
-            '*.Last name' => 'required|alpha|max:255',
-            '*.SSN' => 'required|regex:/^\d{3}-\d{2}-\d{4}$/',
-            '*.Test1' => 'required|integer|between:0,100',
-            '*.Test2' => 'required|integer|between:0,100',
-            '*.Test3' => 'required|integer|between:0,100',
-            '*.Test4' => 'required|integer|between:0,100',
-            '*.Final' => 'required|integer|between:0,100',
-            '*.Grade' => ['required','regex:/^[A-D][+-]?$|^F$/'],
+            '*.first_name' => 'required|alpha|max:255',
+            '*.last_name' => 'required|alpha|max:255',
+            '*.ssn' => 'required|regex:/^\d{3}-\d{2}-\d{4}$/',
+            '*.test1' => 'required|integer|between:0,100',
+            '*.test2' => 'required|integer|between:0,100',
+            '*.test3' => 'required|integer|between:0,100',
+            '*.test4' => 'required|integer|between:0,100',
+            '*.final' => 'required|integer|between:0,100',
+            '*.grade' => ['required','regex:/^[A-D][+-]?$|^F$/'],
         ];
     }
 }
