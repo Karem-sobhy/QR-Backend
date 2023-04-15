@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\DataStoreRequest;
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\DataStoreRequest;
 
 class DataController extends Controller
 {
@@ -24,5 +25,10 @@ class DataController extends Controller
         Data::upsert($data, ['user_id', 'ssn'], ["first_name", "last_name", "test1", "test2", "test3", "test4", "final", "grade"]);
         // dd($insert);
         return response()->json(['messege' => 'Data Upserted Successfully'], 200);
+    }
+
+    public function view(Request $request){
+        $model= $request->user()->data();
+        return DataTables::of($model)->toJson();
     }
 }

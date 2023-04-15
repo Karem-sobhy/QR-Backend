@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(DataController::class)->middleware('auth:sanctum')->group(function () {
     Route::post('/store', 'store')->middleware('json');
-    // Route::post('/orders', 'store');
+    Route::get('/view', 'view');
 });
