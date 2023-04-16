@@ -69,3 +69,8 @@ Docker
 ------
 
 This application is Dockerized and includes the necessary files to build the Docker image for the app.
+
+Demo
+----
+
+You can connect to a live demo of the application at [https://qrapi.karemcloud.com](https://qrapi.karemcloud.com).
