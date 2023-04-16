@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect(env('FRONT_URL','qr.karemcloud.com'));
+    return redirect(env('FRONT_URL','https://qr.karemcloud.com'));
 });
