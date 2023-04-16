@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Data;
+use App\Events\Upserted;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,8 @@ class DataController extends Controller
         // return $data;
         Data::upsert($data, ['user_id', 'ssn'], ["first_name", "last_name", "test1", "test2", "test3", "test4", "final", "grade"]);
         // dd($insert);
+        Upserted::dispatch($request->user()); //fire event
+
         return response()->json(['messege' => 'Data Upserted Successfully'], 200);
     }
 
