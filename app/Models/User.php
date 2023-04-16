@@ -47,6 +47,6 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function data(){
-        return $this->hasMany(data::class);
+        return $this->hasMany(Data::class);
     }
 }
