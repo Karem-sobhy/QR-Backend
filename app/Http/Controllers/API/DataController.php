@@ -18,13 +18,17 @@ class DataController extends Controller
     {
         $data = $request->validated();
         $user_id= $request->user()->id;
-        $data = array_map(function ($row) use ($user_id) {
+
+
+        $data = array_map(function ($row) use ($user_id) { //add user_id to the students to upsert
             $row['user_id'] = $user_id;
             return $row;
         }, $data);
-        // return $data;
+
+
         Data::upsert($data, ['user_id', 'ssn'], ["first_name", "last_name", "test1", "test2", "test3", "test4", "final", "grade"]);
-        // dd($insert);
+
+
         Upserted::dispatch($request->user()); //fire event
 
         return response()->json(['messege' => 'Data Upserted Successfully'], 200);
@@ -32,6 +36,6 @@ class DataController extends Controller
 
     public function view(Request $request){
         $model= $request->user()->data();
-        return DataTables::of($model)->toJson();
+        return DataTables::of($model)->toJson(); //send the data of the authinicated user
     }
 }
